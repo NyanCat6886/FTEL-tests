@@ -1,0 +1,5 @@
+G12 Gabriel Sañudo Ferrándiz
+cd lab2/dir2
+wc -wl ../dir1/fichero1
+grep -n "Gabriel Sañudo Ferrándiz" ../dir1/fichero1
+history -w G12-Sañudo-Ferrándiz-L2-2.txt

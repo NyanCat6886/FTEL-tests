@@ -1,0 +1,14 @@
+cd lab1
+G12 Gabriel Sañudo Ferrándiz
+nano asignaturas.txt
+wc -l asignaturas.txt
+wc asignaturas.txt
+cp asignaturas.txt asignaturas-mod.txt
+cp asignaturas.txt asignaturas.bak
+ls
+ls asig*
+diff asignaturas.txt asignaturas.bak
+man diff
+diff -s asignaturas.txt asignaturas.bak
+rm -i asignaturas.bak
+history -w G12-Sañudo-Ferrándiz-L1-2.txt

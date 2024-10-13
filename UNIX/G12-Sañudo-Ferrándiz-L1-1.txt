@@ -1,0 +1,40 @@
+G1x Gabriel Sañudo Ferrándiz
+history
+mkdir lab1
+cd lab1
+nano fichero.txt
+ls -l
+nano fichero2.txt
+wc fichero.txt
+wc fichero2.txt
+cat fichero.txt
+cat fichero2.txt
+more fichero2.txt
+less fichero2.txt
+cp fichero2.txt fichero3.txt
+cp fichero2.txt fichero4.txt
+nano fichero4.txt
+diff fichero2.txt fichero3.txt
+diff fichero2.txt fichero4.txt
+mv fichero.txt ff.txt
+ls
+rm ff.txt fichero3.txt
+ls
+nano fichero2.txt
+less fichero2.txt
+grep -n Palabra fichero2.txt
+ls f*
+ls f?
+cp fichero2.txt ff
+cp fichero2.txt fa
+cp fichero2.txt fab
+cp fichero2.txt fac
+ls f?
+rm -i f?
+ls f*
+rm -i f*
+ls f*
+history
+history | less
+man ls
+history -w G12-Sañudo-Ferrándiz-L1-1.txt

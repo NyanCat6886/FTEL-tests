@@ -1,0 +1,42 @@
+G12 Gabriel Sañudo Ferrándiz
+nano fichero0
+mkdir lab2
+cd lab2
+mkdir dir1
+mkdir dir2
+cd dir1
+nano fichero1
+cd ../dir2/
+mkdir dir3
+cd dir3
+nano fichero31
+nano fichero32
+cd ../../..
+pwd
+tree
+ls -R
+cd /home/g.sferrandiz/lab2/dir2/dir3/
+cd /home/g.sferrandiz/lab2/dir1/
+cd /home/g.sferrandiz/
+cd lab2/dir2
+cd ../dir1
+cd ../dir3
+cd ../dir2/dir3
+cd ../../..
+cat /home/g.sferrandiz/fichero0
+nano /home/g.sferrandiz/lab2/dir2/dir3/fichero32
+mv /home/g.sferrandiz/lab2/dir2/dir3/fichero31 /home/g.sferrandiz/lab2/dir2/dir3/fichero3100
+ls -l lab2/dir2/dir3
+nano lab2/dir2/dir3/fichero32
+cat lab2/dir1/fichero1
+mv lab2/dir2/dir3/fichero32 lab2/dir2/dir3/fichero3200
+tree
+cd /home/g.sferrandiz/lab2/dir1/
+cp /home/g.sferrandiz/fichero0 /home/g.sferrandiz/lab2/dir2/fichero2
+rm -i /home/g.sferrandiz/lab2/dir2/dir3/fich*
+cd lab2/dir1
+cp ../../fichero0 ../dir2/dir3/fichero3300
+rm -i ../dir2/fich*
+cd ../..
+tree
+history -w G12-Sañudo-Ferrándiz-L2-1.txt
