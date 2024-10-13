@@ -1,2 +1,2 @@
 # FTEL-tests
-Some homework and trash about that subject of Electronic Engineering
+Some homework and other stuff for FTEL Subject of Electronic Engineering (ETSIT)
