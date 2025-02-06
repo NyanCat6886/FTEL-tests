@@ -1,0 +1,14 @@
+Gabriel Sañudo Ferrándiz
+cd lab3
+cat > lenguajes.txt
+cat lenguajes.txt
+cat >> lenguajes.txt
+sort lenguajes.txt -o lenguajes-ordenados.txt
+sort lenguajes.txt | grep -n "a"
+sort lenguajes.txt | grep -n "a" > lenguajes-a.txt
+cat lenguajes-a.txt
+ls -l 
+ls -l lenguajes-a.txt
+chmod 600 lenguajes-a.txt
+ls -l lenguajes-a.txt
+history -w G12-Sañudo-Ferrándiz-L3-2.txt
