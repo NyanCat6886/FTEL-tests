@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+    <title>Las Películas Favoritas de Gabriel Sañudo Ferrándiz</title>
+<style>
+    button, .q {
+        display: inline-block; text-decoration: none;
+        padding: 2px 6px; margin: 2px;
+        color: #FFF;
+        border-radius: 4px;
+    }
+    .q { background: #4479BA; }
+    button { background: #bbbbdd; }
+    button:hover, .q:hover { background: #356094; }
+    #mensaje-de-error{
+        color:green;
+        background-color: black;
+    }
+    body{background-color: deepskyblue;}
+    h1{background-color: cadetblue;}
+</style>
+<script type="text/javascript">
+    // MODELO DE DATOS
+    let mis_peliculas = [
+        {titulo: "Superlópez", director: "Javier Ruiz Caldera"},
+        {titulo: "Jurasic Park", director: "Steven Spielberg"},
+        {titulo: "Interstellar", director: "Christopher Nolan"}
+    ];
+
+    // VISTAS
+    function indexView() {
+        let i = 0;
+        let view = "<p>Haga clic sobre una película para ver su director:</p>\n";
+        while (i < mis_peliculas.length) {
+            view += `
+                <div>
+                    <span class="q" onclick="showContr(${i})">${mis_peliculas[i].titulo}</span>
+                    <button onclick="editContr(${i})">Editar</button>
+                    <button onclick="deleteContr(${i})">Borrar</button>
+                </div>\n`;
+            i++;
+        }
+        view += `<button onclick="newContr()">Añadir</button>
+                 <button onclick="randomContr()">Sorpresa</button>
+                 <div id="randomMovie"></div>`;
+        return view;
+    }
+
+    function showView(i) {
+        return `
+            <h2>${mis_peliculas[i].titulo}</h2>
+            <p>Director: ${mis_peliculas[i].director}</p>
+            <button onclick="indexContr()">Volver</button>`;
+    }
+
+    function newView() {
+        return `
+            <h2>Añadir Nueva Película</h2>
+            <p>Título: <input type="text" id="nuevoTitulo"></p>
+            <p>Director: <input type="text" id="nuevoDirector"></p>
+            <button onclick="createContr()">Crear</button>
+            <button onclick="indexContr()">Cancelar</button>`;
+    }
+
+    function editView(i) {
+        return `
+            <h2>Editar Película</h2>
+            <p>Título: <input type="text" id="titulo" value="${mis_peliculas[i].titulo}"></p>
+            <p>Director: <input type="text" id="director" value="${mis_peliculas[i].director}"></p>
+            <button onclick="updateContr(${i})">Actualizar</button>
+            <button onclick="indexContr()">Volver</button>`;
+    }
+
+    // CONTROLADORES
+    function indexContr() {
+        document.getElementById('main').innerHTML = indexView();
+        borrarError();
+    }
+
+    function showContr(i) {
+        document.getElementById('main').innerHTML = showView(i);
+        borrarError();
+    }
+
+    function newContr() {
+        document.getElementById('main').innerHTML = newView();
+        borrarError();
+    }
+
+    function createContr() {
+        let nuevoTitulo = document.getElementById("nuevoTitulo").value;
+        let nuevoDirector = document.getElementById("nuevoDirector").value;
+        if (nuevoTitulo && nuevoDirector) {
+            mis_peliculas.push({titulo: nuevoTitulo, director: nuevoDirector});
+            showContr(mis_peliculas.length - 1);
+        } else {
+            showError("Por favor, rellene ambos campos.");
+        }
+    }
+
+    function editContr(i) {
+        document.getElementById('main').innerHTML = editView(i);
+        borrarError();
+    }
+
+    function updateContr(i) {
+        let nuevoTitulo = document.getElementById("titulo").value;
+        let nuevoDirector = document.getElementById("director").value;
+        if (nuevoTitulo && nuevoDirector) {
+            mis_peliculas[i].titulo = nuevoTitulo;
+            mis_peliculas[i].director = nuevoDirector;
+            showContr(i);
+        } else {
+            showError("Por favor, rellene ambos campos.");
+        }
+    }
+
+    function deleteContr(i) {
+        if (confirm(`Borrar ${mis_peliculas[i].titulo}?`)) {
+            mis_peliculas.splice(i, 1); // elimina elemento i del array
+            indexContr();
+        }
+    }
+
+    function randomContr() {
+        mis_peliculas[0].titulo =`Toy Story 4`
+        mis_peliculas[0].director =`Josh Cooley`
+        document.getElementById('main').innerHTML = indexView();
+        borrarError();
+    }
+
+    function showError(mensaje){
+        document.getElementById("mensaje-de-error").innerHTML=mensaje;
+    }
+    function borrarError(){
+        document.getElementById("mensaje-de-error").innerHTML=``;
+    }
+</script>
+</head>
+<body onload="indexContr()">
+<h1>Las Películas Favoritas de Gabriel Sañudo Ferrándiz</h1>
+<h2> Grupo 12</h2>
+<div id="main"> <!-- La vista se incluye aquí --> </div>
+<div id="mensaje-de-error"></div>
+</body>
+</html>
