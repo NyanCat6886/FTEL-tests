@@ -1,0 +1,185 @@
+FTEL 2024 - Laboratorio 7 - Formulario de entrega.
+
+Edite este fichero con un EDITOR DE TEXTO PLANO.
+Rellene los espacios en blanco con los resultados pedidos en el enunciado. 
+NO BORRE NADA DE LO QUE YA ESTA ESCRITO EN ESTE FICHERO.
+COMPLETE SU DIRECCION DE EMAIL de alumno en la linea siguiente, INSERTANDO delante del signo @ lo que proceda.
+
+g.sferrandiz@alumnos.upm.es
+
+Antes de entregar, renombre este fichero como indican las instrucciones de entrega.
+
+* Tarea 3. 
+
+3.1 Recorte y pegue aqui las sentencias CREATE TABLE usadas para crear las tablas de la base de datos:
+
+CREATE TABLE usuario (nombre varchar(30) NOT NULL, clave varchar(30) NOT NULL, edad int, imagen varchar(30) NOT NULL DEFAULT 'usuario.jpg', PRIMARY KEY (nombre));
+
+CREATE TABLE sitio (direccion varchar(30) NOT NULL, coordenadas varchar(30) NOT NULL, PRIMARY KEY (direccion));
+
+CREATE TABLE quedada (que varchar(30) NOT NULL, dia date NOT NULL, hora time NOT NULL, direccion varchar(30), PRIMARY KEY (que), FOREIGN KEY(direccion) REFERENCES sitio(direccion));
+
+
+CREATE TABLE asiste (nombre varchar(30) NOT NULL, que varchar(30) NOT NULL, PRIMARY KEY (nombre, que), FOREIGN KEY (nombre) REFERENCES usuario(nombre), FOREIGN KEY (que) REFERENCES quedada(que));
+
+3.2. Recorte y pegue aqui el resultado de la sentencia DESCRIBE para cada una de las tablas creadas:
+
+mysql> describe usuario;
++--------+-------------+------+-----+-------------+-------+
+| Field  | Type        | Null | Key | Default     | Extra |
++--------+-------------+------+-----+-------------+-------+
+| nombre | varchar(30) | NO   | PRI | NULL        |       |
+| clave  | varchar(30) | NO   |     | NULL        |       |
+| edad   | int         | YES  |     | NULL        |       |
+| imagen | varchar(30) | NO   |     | usuario.jpg |       |
++--------+-------------+------+-----+-------------+-------+
+4 rows in set (0,01 sec)
+
+
+mysql> describe asiste;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| nombre | varchar(30) | NO   | PRI | NULL    |       |
+| que    | varchar(30) | NO   | PRI | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+2 rows in set (0,00 sec)
+
+mysql> describe quedada;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| que       | varchar(30) | NO   | PRI | NULL    |       |
+| dia       | date        | NO   |     | NULL    |       |
+| hora      | time        | NO   |     | NULL    |       |
+| direccion | varchar(30) | YES  | MUL | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0,00 sec)
+
+mysql> describe sitio;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| direccion   | varchar(30) | NO   | PRI | NULL    |       |
+| coordenadas | varchar(30) | NO   |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+2 rows in set (0,01 sec)
+
+
+
+3.3. Explique brevemente cuales son los elementos del diagrama E-R de la practica que se deben transformar en tablas, cuales no y por que:
+
+Se deben transformar en tablas las entidades "usuario", "asiste", "quedada", y "sitio", con sus respectivos atributos y enlazando las tablas correspondientes por sus claves foráneas, definiendo las claves primarias en cada tabla creada, según las restricciones del modelo E-R, la relación "donde", no es necesario que sea modelada, dadas las cardinalidades N:1 (muchos a uno), ya que bastará con propagar la clave de "sitio", que actúa con cardinalidad 1, a la tabla "quedada", que actúa con cardinalidad N.
+
+
+3.4. Recorte y pegue aqui el resultado que muestra MySQL con la sentencia SHOW TABLES:
+
+
+mysql> SHOW TABLES;
++-----------------------+
+| Tables_in_misquedadas |
++-----------------------+
+| asiste                |
+| quedada               |
+| sitio                 |
+| usuario               |
++-----------------------+
+4 rows in set (0,00 sec)
+
+
+* Tarea 4.  
+
+4.1. Recorte y pegue aqui todas las sentencias INSERT INTO que haya utilizado para rellenar las tablas:
+
+
+INSERT INTO usuario (nombre, clave, edad, imagen) VALUES
+('ana', 'clavesegura', 20, 'fotochachi.jpg'), ('blas95', 'blaselmaquina', 19, 'blas95.jpg'), ('carmen', 'lakarmen', 21, 'anime.jpg');
+
+
+INSERT INTO sitio (direccion, coordenadas) VALUES
+('castellana 100', '40.435407, -3.719202'), ('bar de paco', '40.452600, -3.690500'), ('metro moncloa', '40.429700, -3.712200');
+
+
+INSERT INTO quedada (que, dia, hora, direccion) VALUES
+('cumple de carmen', '2024-03-17', '12:00:00', 'castellana 100'), ('cena', '2024-06-10', '20:30:00', 'bar de paco'), ('reunion de trabajo', '2024-07-01', '09:00:00', 'metro moncloa');
+
+
+INSERT INTO asiste (nombre, que) VALUES
+('ana', 'cumple de carmen'), ('blas95', 'cena'), ('carmen', 'reunion de trabajo'), ('ana', 'cena'), ('carmen', 'cumple de carmen');
+
+
+* Tarea 5.
+ 
+5.1. Recorte y pegue aqui el resultado de las sentencias SELECT  para cada una de las tablas creadas:
+
+mysql> SELECT * FROM usuario;
++--------+---------------+------+----------------+
+| nombre | clave         | edad | imagen         |
++--------+---------------+------+----------------+
+| ana    | clavesegura   |   20 | fotochachi.jpg |
+| blas95 | blaselmaquina |   19 | blas95.jpg     |
+| carmen | lakarmen      |   21 | anime.jpg      |
++--------+---------------+------+----------------+
+3 rows in set (0,00 sec)
+
+
+mysql> SELECT * FROM sitio;
++----------------+----------------------+
+| direccion      | coordenadas          |
++----------------+----------------------+
+| bar de paco    | 40.452600, -3.690500 |
+| castellana 100 | 40.435407, -3.719202 |
+| metro moncloa  | 40.429700, -3.712200 |
++----------------+----------------------+
+3 rows in set (0,00 sec)
+
+
+mysql> SELECT * FROM quedada;
++--------------------+------------+----------+----------------+
+| que                | dia        | hora     | direccion      |
++--------------------+------------+----------+----------------+
+| cena               | 2024-06-10 | 20:30:00 | bar de paco    |
+| cumple de carmen   | 2024-03-17 | 12:00:00 | castellana 100 |
+| reunion de trabajo | 2024-07-01 | 09:00:00 | metro moncloa  |
++--------------------+------------+----------+----------------+
+3 rows in set (0,00 sec)
+
+
+mysql> SELECT * FROM asiste;
++--------+--------------------+
+| nombre | que                |
++--------+--------------------+
+| ana    | cena               |
+| blas95 | cena               |
+| ana    | cumple de carmen   |
+| carmen | cumple de carmen   |
+| carmen | reunion de trabajo |
++--------+--------------------+
+5 rows in set (0,00 sec)
+
+
+
+5.2. Escriba una sentencia SELECT para realizar la consulta que se indique en la tarea correspondiente a su grupo de clase:
+
+SELECT nombre, que, dia
+FROM usuario, quedada
+WHERE  usuario.nombre = 'epi'
+ORDER BY quedada.dia;
+
+
+     Recorte y pegue aqui el resultado de la sentencia  (no puede estar vacio, ver enunciado):
+
+
++--------+--------------------+------------+
+| nombre | que                | dia        |
++--------+--------------------+------------+
+| epi    | cumple de carmen   | 2024-03-17 |
+| epi    | cena               | 2024-06-10 |
+| epi    | reunion de trabajo | 2024-07-01 |
++--------+--------------------+------------+
+3 rows in set (0.00 sec)
+
+
+
+
+--------------------------------
