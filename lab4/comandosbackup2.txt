@@ -1,0 +1,182 @@
+date
+ping
+ping google.es
+ls
+cd ../
+ls
+cd ..
+whoami
+neofetch
+pwd
+G1x Gabriel Sañudo Ferrándiz
+history
+mkdir lab1
+cd lab1
+nano fichero.txt
+ls -l
+nano fichero2.txt
+wc fichero.txt
+wc fichero2.txt
+cat fichero.txt
+cat fichero2.txt
+more fichero2.txt
+less fichero2.txt
+cp fichero2.txt fichero3.txt
+cp fichero2.txt fichero4.txt
+nano fichero4.txt
+diff fichero2.txt fichero3.txt
+diff fichero2.txt fichero4.txt
+mv fichero.txt ff.txt
+ls
+rm ff.txt fichero3.txt
+ls
+nano fichero2.txt
+less fichero2.txt
+grep -n Palabra fichero2.txt
+ls f*
+ls f?
+cp fichero2.txt ff
+cp fichero2.txt fa
+cp fichero2.txt fab
+cp fichero2.txt fac
+ls f?
+rm -i f?
+ls f*
+rm -i f*
+ls f*
+history
+history | less
+man ls
+history -w G12-Sañudo-Ferrándiz-L1-1.txt
+less G12-Sañudo-Ferrándiz-L1-1.txt
+exit
+ls
+ls -l
+cd lab1
+-ls
+ls
+cat G12-Sañudo-Ferrándiz-L1-1.txt
+exit
+node.js
+node
+cd lab1
+ls
+nano fichero4.txt
+clear
+exit
+cd lab1
+G12 Gabriel Sañudo Ferrándiz
+nano asignaturas.txt
+wc -l asignaturas.txt
+wc asignaturas.txt
+cp asignaturas.txt asignaturas-mod.txt
+cp asignaturas.txt asignaturas.bak
+ls
+diff asignaturas.txt asignaturas.bak
+man diff
+diff -s asignaturas.txt asignaturas.bak
+rm -i asignaturas.bak
+history -w G12-Sañudo-Ferrándiz-L1-2.txt
+less G12-Sañudo-Ferrándiz-L1-2.txt
+ls 
+exit
+cd lab1
+grep fichero
+grep fichero.txt
+ls fic
+ls *
+ls *fich
+ls -n fichero
+clear 
+ls /lab1/ficheros
+ls asig*
+lab1
+clear
+cd lab1
+nano G12-Sañudo-Ferrándiz-L1-2.txt
+cd lab1
+ls asig*
+clear
+clear
+tree
+Gabriel G12 Sañudo Ferrándiz
+cat
+ls > lista-ficheros.txt
+cat > frutas.txt
+cat frutas.txt
+sort frutas.txt
+sort frutas.txt -o frutas2.txt
+sort > verduras.txt
+cat >> frutas.txt
+cat frutas.txt
+cat frutas.txt verduras.txt > comida.txt
+cat comida.txt
+sort frutas.txt verduras.txt > comida.txt
+cat comida.txt
+ls > nombres.txt
+wc -w < nombres.txt
+rm -i nombres.txt
+ls | wc -w
+ls -l
+chmod 440 frutas.txt
+ls -l
+nano frutas.txt
+history -w G12-Sañudo-Ferrándiz-L3-1.txt
+Gabriel Sañudo Ferrándiz
+cd lab3
+cat > lenguajes.txt
+cat lenguajes.txt
+cat >> lenguajes.txt
+short lenguajes.txt -o lenguajes-ordenados.txt
+sort lenguajes.txt -o lenguajes-ordenados.txt
+sort lenguajes.txt | grep -n "a"
+sort lenguajes.txt | grep -n "a" > lenguajes-a.txt
+cat lenguajes-a.txt
+ls -l 
+ls -s lenguajes-a.txt
+ls -l lenguajes-a.txt
+chmod 600 lenguajes-a.txt
+ls -l lenguajes-a.txt
+history -w G12-Sañudo-Ferrándiz-L3-2.txt
+exit
+tree
+cd descargas
+cd Descargas
+cd ..
+clear
+tree
+cp Descargas/ftel-t2-lab4-form-2024.odt
+mkdir lab4
+cp Descargas/ftel-t2-lab4-form-2024.odt lab4/
+cd lab4
+echo sanudo € > apell
+cat apell
+wc -c apell
+file apell
+iconv -f COD_X -t COD_Y fich
+iconv -f UTF-8 -t LATIN9 apell > apell-cod
+file apell-cod
+wc -c apell-cod
+hd apell
+hd apell-cod
+unzip -l ftel-t2-lab4-form-2024.odt
+file imag.gif
+cp imag.gif imag.exe
+file imag.exe
+chmod 555 imag.exe
+file imag.exe
+hd imag.gif | less
+history -w comandos_backup
+cd lab4
+hd imag.gif | less
+man ascii
+hd imag.gif | less
+file imag.gif
+echo GIF89a2024 > raro.gif
+file raro.gif
+file glow.tiff
+file gmarbles.tiff
+hd glow.tiff | less
+hd gmarbles.tiff | less
+hd /bin/cat | less
+history -w comandosbackup2.txt
