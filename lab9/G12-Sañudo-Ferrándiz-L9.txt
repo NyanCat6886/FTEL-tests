@@ -1,0 +1,96 @@
+FTEL 2024 - Laboratorio 9 - Formulario de entrega  
+
+Edite este fichero con un EDITOR DE TEXTO PLANO.
+Rellene los espacios en blanco con los resultados pedidos en el enunciado. 
+NO BORRE NADA DE LO QUE YA ESTA ESCRITO.
+COMPLETE SU DIRECCION DE EMAIL de alumno en la línea siguiente, INSERTANDO delante del signo @ lo que corresponda  
+
+g.sferrandiz@alumnos.upm.es
+
+Antes de entregar, renombre este fichero como indican las instrucciones de entrega en la página Moodle.
+
+* Tarea 3. Analice con Wireshark la petición GET de la página HTML y responda a las siguientes cuestiones.
+- Versión del protocolo HTTP usado:
+
+HTTP v1.1
+
+- Nombre de la línea de cabecera que identifica el navegador que hace la petición:
+
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
+
+- Nombre de la línea de cabecera que identifica la máquina a la que se hace la petición:
+
+Host: 138.4.18.127
+
+
+- Idiomas en los que se prefiere recibir la información que envíe el servidor y nombre de la línea de cabecera donde se indican:
+
+Español de España e Inglés de Estados Unidos.
+
+Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+
+
+- Nombre de la línea de cabecera donde se indica que el navegador puede aceptar texto HTML como contenido:
+
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+
+
+* Tarea 4. Para la respuesta que corresponde a la página HTML responda a las siguientes cuestiones. 
+- Código de estado retornado en la respuesta:
+
+Status code: 200 (200 OK)
+
+- Tipo y versión del servidor Web que responde y nombre de la línea de la cabecera donde aparece:
+
+Server: Apache/2.4.29 (Ubuntu)
+
+
+- Formato del contenido descargado y nombre de la línea de cabecera donde aparece:
+
+Content-Type: text/html
+
+
+- Longitud del contenido descargado y nombre de la línea de cabecera donde aparece:
+
+Content-Length: 3138
+
+
+
+* Tarea 6. Realización de consultas al DNS.
+- Copie el resultado de la consulta DNS para el primer servidor Web correspondiente a su grupo:
+
+dig +noall +answer +identify www.uni-koeln.de
+
+www.uni-koeln.de.	42	IN	CNAME	gemini.rrz.uni-koeln.de.
+gemini.rrz.uni-koeln.de. 7199	IN	A	134.95.81.52
+;; Received 86 bytes from 127.0.0.53#53(127.0.0.53) in 0 ms
+
+
+
+
+- Indique cuál es la dirección IP del primer servidor Web:
+
+134.95.81.52
+
+- ¿El nombre del primer servidor Web es un alias? ¿Por qué?
+
+Sí, porque el nombre apunta al nombre canónico donde apunta a la dirección IP correspondiente.
+
+
+- Copie el resultado de la consulta DNS para el segundo servidor Web correspondiente a su grupo:
+
+dig +noall +answer +identify www.uni-bremen.de
+www.uni-bremen.de.	407	IN	A	134.102.22.124
+;; Received 62 bytes from 127.0.0.53#53(127.0.0.53) in 0 ms
+
+
+- Indique cuál es la dirección IP del segundo servidor Web:
+
+134.102.22.124
+
+
+- ¿El nombre del segundo servidor Web es un alias? ¿Por qué?
+
+No, no es un alias, la url apunta directamente a la dirección IP del servidor donde se aloja el contenido.
+
+-------------------------------
